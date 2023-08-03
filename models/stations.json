@@ -1,0 +1,9 @@
+{
+  "file": "./models/stations.json",
+  "stations": [
+    {
+      "title": "Dublin",
+      "_id": "006f8db7-605c-4f61-8a9f-718612b8c0d1"
+    }
+  ]
+}
