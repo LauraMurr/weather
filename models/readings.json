@@ -1,0 +1,21 @@
+{
+  "file": "./models/readings.json",
+  "readings": [
+    
+  
+    {
+      "code": 22,
+      "temp": 22,
+      "windspeed": 22,
+      "_id": "1ba75457-1162-4019-8772-c04c596fc6fd",
+      "stationid": "006f8db7-605c-4f61-8a9f-718612b8c0d1"
+    },
+    {
+      "code": 23,
+      "temp": 23,
+      "windspeed": 23,
+      "_id": "a0eaec4c-c3a0-4dea-a5d9-d26ed321435c",
+      "stationid": "006f8db7-605c-4f61-8a9f-718612b8c0d1"
+    }
+  ]
+}

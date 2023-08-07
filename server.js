@@ -16,5 +16,5 @@ app.set("views", "./views");
 app.use("/", router);
 
 const listener = app.listen(process.env.PORT || 4000, function () {
-  console.log(`Todolist started on http://localhost:${listener.address().port}`);
+  console.log(`Laura's Weather App started on http://localhost:${listener.address().port}`);
 });
