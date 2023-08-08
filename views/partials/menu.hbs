@@ -1,19 +1,41 @@
-<nav class="navbar mb-6">
-  <div class="navbar-brand">
-    {{> brand}}
-  </div>
-  <div class="navbar-menu" id="navMenu">
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a id="dashboard" class="button" href="/dashboard"> Dashboard </a>
-          <a id="about" class="button" href="/about"> About </a>
+<section class="section">
+  <nav class="navbar mb-6">
+    <div class="navbar-brand">
+      {{> brand}}
+    </div>
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="dashboard" class="button has-text-family-roboto" href="/dashboard" style="background-color: #008000; color: #FFFFFF;">DASHBOARD</a>
+            <a id="about" class="button has-text-family-roboto" href="/about" style="background-color: #008000; color: #FFFFFF;">ABOUT</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</section>
+
+<style>
+  .section {
+    padding-top: 2rem; 
+    padding-bottom: 0rem; 
+  }
+
+  .navbar {
+    padding: 0rem; 
+  }
+  .active-link {
+    background-color: black !important; /* Your custom color */
+    color: #FFFFFF !important; /* Text color */
+    border: 5px solid black; /* Black border */
+    /* Any additional styles you want to apply */
+  }
+</style>
+
 
 <script>
-  document.getElementById("{{active}}").classList.add("is-primary");
+  // Add a new class 'active-link' to the active menu link
+  document.getElementById("{{active}}").classList.add("active-link");
 </script>
+

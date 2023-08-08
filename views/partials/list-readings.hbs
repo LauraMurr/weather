@@ -1,24 +1,25 @@
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Temp</th>
-      <th>Windspeed</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each station.readings}}
-    <tr>
-      <td>
-        {{code}}
-      </td>
-      <td>
-        {{temp}}
-      </td>
-      <td>
-        {{windspeed}}
-      </td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="table-container">
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Temp</th>
+        <th>Windspeed</th>
+        <th></th> <!-- Empty header for the delete icon column -->
+      </tr>
+    </thead>
+    <tbody>
+      {{#each station.readings}}
+      <tr>
+        <td>{{code}}</td>
+        <td>{{temp}}</td>
+        <td>{{windspeed}}</td>
+        <td>
+            {{>icons/delete}}
+          </a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

@@ -1,14 +1,40 @@
 {{> menu}}
 
 <section class="section">
-  <div class="title">
-    {{station.title}}
+  <div class="has-text-centered" style="background-color: black; padding: 20px;">
+    <h1 class="title has-text-white is-size-1" style="margin-top: 10px; margin-bottom: 20px;">{{station.title}}</h1>
+  </div>
+  <div class="columns is-centered" style="margin-top: 20px;">
+    <div class="column is-3">
+      <div class="box has-text-centered">
+        <h2 class="title is-3">CODE</h2>
+        <p>{{station.readings.[0].code}}</p>
+      </div>
     </div>
-    <div>
-    {{> list-readings}}
+    <div class="column is-3">
+      <div class="box has-text-centered">
+        <h2 class="title is-3">TEMP</h2>
+        <p>{{station.readings.[0].temp}}</p>
+      </div>
     </div>
-    <div>
+    <div class="column is-3">
+      <div class="box has-text-centered">
+        <h2 class="title is-3">WINDSPEED</h2>
+        <p>{{station.readings.[0].windspeed}}</p>
+      </div>
+    </div>
+  <div class="container">
+    <div class="columns is-centered" style="margin-top: 20px;">
+      <div class="column is-3 has-text-centered">
+        <a href="/station/{{station._id}}/deletereading/{{station.readings.[0]._id}}">
+          {{>icons/delete}}
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div>
     {{> add-reading}}
-    </div>
-  
+  </div>
 </section>
+

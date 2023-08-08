@@ -1,5 +1,5 @@
-<form class="box" action="/station/{{station._id}}/addreading" method="POST">
-  <label for="code">Enter Reading Details:</label>
+<form class="box" action="/station/{{station._id}}/addreading" method="POST" style="font-family: 'Roboto'; padding-top: 20px;">
+  <label class="has-text-weight-semibold">Enter New Readings:</label>
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
@@ -13,5 +13,9 @@
       </div>
     </div>
   </div>
-  <button class="button is-primary">Add Reading</button>
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-success has-text-white" style="background-color: #008000;">Add Reading</button>
+    </div>
+  </div>
 </form>
