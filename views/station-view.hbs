@@ -4,37 +4,86 @@
   <div class="has-text-centered" style="background-color: black; padding: 20px;">
     <h1 class="title has-text-white is-size-1" style="margin-top: 10px; margin-bottom: 20px;">{{station.title}}</h1>
   </div>
+  <!-- Latest Readings -->
   <div class="columns is-centered" style="margin-top: 20px;">
     <div class="column is-3">
       <div class="box has-text-centered">
         <h2 class="title is-3">CODE</h2>
-        <p>{{station.readings.[0].code}}</p>
+        <p class="has-text-weight-bold is-size-4">{{station.readings.[0].code}}</p>
       </div>
     </div>
     <div class="column is-3">
       <div class="box has-text-centered">
         <h2 class="title is-3">TEMP</h2>
-        <p>{{station.readings.[0].temp}}</p>
+       <p class="has-text-weight-bold is-size-4">{{station.readings.[0].temp}}</p>
       </div>
     </div>
     <div class="column is-3">
       <div class="box has-text-centered">
         <h2 class="title is-3">WINDSPEED</h2>
-        <p>{{station.readings.[0].windspeed}}</p>
+        <p class="has-text-weight-bold is-size-4">{{station.readings.[0].windspeed}} kpm / {{station.readings.[0].beaufortScale}} bft</p>
       </div>
     </div>
-  <div class="container">
-    <div class="columns is-centered" style="margin-top: 20px;">
-      <div class="column is-3 has-text-centered">
-        <a href="/station/{{station._id}}/deletereading/{{station.readings.[0]._id}}">
-          {{>icons/delete}}
-        </a>
+    <div class="column is-3">
+      <div class="box has-text-centered">
+        <h2 class="title is-3">PRESSURE</h2>
+       <p class="has-text-weight-bold is-size-4">{{station.readings.[0].pressure}}</p>
       </div>
     </div>
   </div>
-  </div>
-  <div>
-    {{> add-reading}}
-  </div>
+
+  <!-- Table of All Readings -->
+<div class="table-container" style="margin-top: 20px;">
+  <!-- Header Table -->
+  <table class="table is-fullwidth custom-title-table">
+    <thead>
+      <tr class="custom-title-row">
+        <th class="has-text-centered custom-column" style="color: #008000;">CODE</th>
+        <th class="has-text-centered custom-column" style="color: #008000;">TEMP</th>
+        <th class="has-text-centered custom-column" style="color: #008000;">WIND</th>
+        <th class="has-text-centered custom-column" style="color: #008000;">PRESSURE</th>
+        <th class="has-text-centered custom-column" style="color: #008000;">DELETE</th> 
+      </tr>
+    </thead>
+  </table>
+
+  <!-- Data Table -->
+  <table class="table is-fullwidth custom-data-table">
+    <tbody>
+      {{#each station.readings}}
+      <tr class="custom-data-row">
+        <td class="has-text-centered custom-column has-text-weight-bold">{{code}}</td>
+        <td class="has-text-centered custom-column has-text-weight-bold">{{temp}}</td>
+        <td class="has-text-centered custom-column has-text-weight-bold"> {{windspeed}} kpm / {{beaufortScale}} bft</td>
+        <td class="has-text-centered custom-column has-text-weight-bold">{{pressure}}</td>
+        <td class="has-text-centered custom-column">
+          <a href="/station/{{../station._id}}/deletereading/{{_id}}">
+            {{>icons/smalldelete}}
+          </a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Reading Form -->
+<div>
+  {{> add-reading}}
+</div>
 </section>
 
+<style>
+  .custom-data-row {
+    box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.6);
+  }
+  .custom-title-row {
+  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.6); 
+  background-color: #f0f0f0; 
+  color: #008000; 
+  font-weight: bold; 
+}
+.custom-column {
+  width: 20%; /* Adjust as needed */
+}
+</style>

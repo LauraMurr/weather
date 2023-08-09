@@ -5,7 +5,8 @@
         <th>Code</th>
         <th>Temp</th>
         <th>Windspeed</th>
-        <th></th> <!-- Empty header for the delete icon column -->
+        <th>Pressure</th>
+        <th></th> <!-- Empty header for the delete icon to maintain alignment -->
       </tr>
     </thead>
     <tbody>
@@ -13,7 +14,8 @@
       <tr>
         <td>{{code}}</td>
         <td>{{temp}}</td>
-        <td>{{windspeed}}</td>
+        <td>{{windspeed}} km/h / {{convertToBeaufort windspeed}} BFT </td>
+        <td>{{pressure}}</td>
         <td>
             {{>icons/delete}}
           </a>

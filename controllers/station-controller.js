@@ -1,5 +1,7 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
+import { convertToBeaufort } from "../utils/conversion.js";
+
 
 export const stationController = {
   async index(request, response) {
@@ -17,11 +19,15 @@ export const stationController = {
       code: Number(request.body.code),
       temp: Number(request.body.temp),
       windspeed: Number(request.body.windspeed),
+      pressure: Number(request.body.pressure),
     };
+    const beaufortScale = convertToBeaufort(newReading.windspeed);
+
     console.log(`adding reading ${newReading.code}, ${newReading.temp}, ${newReading.windspeed},`);
-    
     console.log("Station Readings:", station.readings);
-    
+    console.log("Windspeed:", newReading.windspeed);
+    console.log("Beaufort Scale:", beaufortScale);
+
     await readingStore.addReading(station._id, newReading);
     response.redirect("/station/" + station._id);
   },

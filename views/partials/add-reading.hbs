@@ -5,11 +5,20 @@
       <div class="field">
         <input class="input" type="number" placeholder="Enter Code" name="code">
       </div>
-      <div class="field">
+     <div class="field">
         <input class="input" type="number" placeholder="Enter Temp" name="temp">
+        <div class="select">
+          <select name="tempUnit" class="input">
+            <option value="C">Celsius (°C)</option>
+            <option value="F">Fahrenheit (°F)</option>
+          </select>
+        </div>
       </div>
       <div class="field">
-        <input class="input" type="number" placeholder="Enter Wind Speed" name="windspeed">
+        <input class="input" type="number" placeholder="Enter Wind Speed km/ph" name="windspeed">
+      </div>
+      <div class="field">
+        <input class="input" type="number" placeholder="Enter Pressure" name="pressure">
       </div>
     </div>
   </div>
@@ -18,4 +27,5 @@
       <button class="button is-success has-text-white" style="background-color: #008000;">Add Reading</button>
     </div>
   </div>
+
 </form>

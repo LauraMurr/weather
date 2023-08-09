@@ -1,5 +1,6 @@
 import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
+import { convertToBeaufort } from "../utils/conversion.js";
 
 const db = initStore("readings");
 
@@ -13,6 +14,8 @@ export const readingStore = {
     await db.read();
     reading._id = v4();
     reading.stationid = stationId;
+    const beaufortScale = convertToBeaufort(reading.windspeed);
+    reading.beaufortScale = beaufortScale;
     db.data.readings.push(reading);
     await db.write();
     return reading;
@@ -44,6 +47,9 @@ export const readingStore = {
     reading.code = updatedReading.code;
     reading.temp = updatedReading.temp;
     reading.windspeed = updatedReading.windspeed;
+    reading.pressure = updatedPressure.pressure;
+    const beaufortScale = convertToBeaufort(reading.windspeed);
+    reading.beaufortScale = beaufortScale;
     await db.write();
   },
 };
