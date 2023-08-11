@@ -28,6 +28,34 @@ export function convertToBeaufort(windSpeed) {
     }
     return -1;
   }
+
+  export function convertWeatherCode(weatherCode) {
+    const weatherCodes = {
+      100: "Clear",
+      200: "Partial Clouds",
+      300: "Cloudy",
+      400: "Light Showers",
+      500: "Heavy Showers",
+      600: "Rain",
+      700: "Snow",
+      800: "Thunder",
+    };
+  
+    return weatherCodes[weatherCode] || "Unknown"; 
+  }
+
+  export function convertWindDirection(windDirection) {
+    const directions = ["North", "North-Northeast", "Northeast", "East-Northeast", "East", "East-Southeast", "Southeast", "South-Southeast", "South", "South-Southwest", "Southwest", "West-Southwest", "West", "West-Northwest", "Northwest", "North-Northwest"];
+    const index = Math.round((windDirection % 360) / 22.5);
+    return directions[index % 16];
+}
+
+export function calculateWindChill(temperature, windSpeed) {
+  const windChill = 13.12 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temperature * Math.pow(windSpeed, 0.16);
+  return Math.round(windChill * 10) / 10; 
+}
+
+  
   
 
   

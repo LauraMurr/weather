@@ -2,9 +2,9 @@
   <table class="table is-fullwidth">
     <thead>
       <tr>
-        <th>Code</th>
+        <th>WeatherCode</th>
         <th>Temp</th>
-        <th>Windspeed</th>
+        <th>Wind</th>
         <th>Pressure</th>
         <th></th> <!-- Empty header for the delete icon to maintain alignment -->
       </tr>
@@ -12,9 +12,9 @@
     <tbody>
       {{#each station.readings}}
       <tr>
-        <td>{{code}}</td>
+        <td>{{convertWeatherCode code}}</td>
         <td>{{temp}}</td>
-        <td>{{windspeed}} km/h / {{convertToBeaufort windspeed}} BFT </td>
+        <td>{{windspeed}}<br> {{convertToBeaufort windspeed}}<br> {{windDirection}}</td>
         <td>{{pressure}}</td>
         <td>
             {{>icons/delete}}

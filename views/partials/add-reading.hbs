@@ -3,10 +3,10 @@
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <input class="input" type="number" placeholder="Enter Code" name="code">
+        <input class="input" type="number" placeholder="Weather Code" name="code">
       </div>
      <div class="field">
-        <input class="input" type="number" placeholder="Enter Temp" name="temp">
+        <input class="input" type="text" placeholder="Temp" name="temp" inputmode="decimal">
         <div class="select">
           <select name="tempUnit" class="input">
             <option value="C">Celsius (°C)</option>
@@ -15,10 +15,13 @@
         </div>
       </div>
       <div class="field">
-        <input class="input" type="number" placeholder="Enter Wind Speed km/ph" name="windspeed">
+        <input class="input" type="text" placeholder="Windspeed km/ph" name="windspeed" inputmode="decimal">
       </div>
       <div class="field">
-        <input class="input" type="number" placeholder="Enter Pressure" name="pressure">
+        <input class="input" type="text" placeholder="Wind Direction" name="winddirection" inputmode="decimal">
+      </div>
+      <div class="field">
+        <input class="input" type="text" placeholder="Enter Pressure" name="pressure">
       </div>
     </div>
   </div>

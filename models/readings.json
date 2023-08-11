@@ -18,31 +18,15 @@
       "stationid": "006f8db7-605c-4f61-8a9f-718612b8c0d1"
     },
     {
-      "code": 500,
+      "code": "Heavy Showers",
       "temp": 10,
-      "windspeed": 33,
+      "windspeed": 5,
+      "winddirection": "Northeast",
       "pressure": 900,
-      "_id": "03364e86-63a1-4e18-941b-cbbb17446996",
+      "windchill": 9.8,
+      "_id": "0128b2d1-5373-4add-85d2-fb4cb1583b22",
       "stationid": "479b4dd4-2b49-44e1-b5b4-0f1d13943a8c",
-      "beaufortScale": 5
-    },
-    {
-      "code": 500,
-      "temp": 23,
-      "windspeed": 33,
-      "pressure": 900,
-      "_id": "0ec20b11-caed-4165-bf08-1ffe34f9559a",
-      "stationid": "479b4dd4-2b49-44e1-b5b4-0f1d13943a8c",
-      "beaufortScale": 5
-    },
-    {
-      "code": 500,
-      "temp": 10,
-      "windspeed": 33,
-      "pressure": 900,
-      "_id": "98856d75-7eeb-40f0-b6a2-1396092d30c2",
-      "stationid": "479b4dd4-2b49-44e1-b5b4-0f1d13943a8c",
-      "beaufortScale": 5
+      "beaufortScale": 1
     }
   ]
 }

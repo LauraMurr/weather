@@ -8,7 +8,7 @@
   <div class="columns is-centered" style="margin-top: 20px;">
     <div class="column is-3">
       <div class="box has-text-centered">
-        <h2 class="title is-3">CODE</h2>
+        <h2 class="title is-3">WEATHER</h2>
         <p class="has-text-weight-bold is-size-4">{{station.readings.[0].code}}</p>
       </div>
     </div>
@@ -20,14 +20,16 @@
     </div>
     <div class="column is-3">
       <div class="box has-text-centered">
-        <h2 class="title is-3">WINDSPEED</h2>
-        <p class="has-text-weight-bold is-size-4">{{station.readings.[0].windspeed}} kpm / {{station.readings.[0].beaufortScale}} bft</p>
+        <h2 class="title is-3">WIND</h2>
+        <p class="has-text-weight-bold is-size-4">{{station.readings.[0].beaufortScale}} bft <br>
+        {{station.readings.[0].winddirection}} <br> Feels like {{station.readings.[0].windchill}}°C
+        </p>
       </div>
     </div>
     <div class="column is-3">
       <div class="box has-text-centered">
         <h2 class="title is-3">PRESSURE</h2>
-       <p class="has-text-weight-bold is-size-4">{{station.readings.[0].pressure}}</p>
+       <p class="has-text-weight-bold is-size-4">{{station.readings.[0].pressure}} hpa</p>
       </div>
     </div>
   </div>
@@ -38,7 +40,7 @@
   <table class="table is-fullwidth custom-title-table">
     <thead>
       <tr class="custom-title-row">
-        <th class="has-text-centered custom-column" style="color: #008000;">CODE</th>
+        <th class="has-text-centered custom-column" style="color: #008000;">WEATHER</th>
         <th class="has-text-centered custom-column" style="color: #008000;">TEMP</th>
         <th class="has-text-centered custom-column" style="color: #008000;">WIND</th>
         <th class="has-text-centered custom-column" style="color: #008000;">PRESSURE</th>

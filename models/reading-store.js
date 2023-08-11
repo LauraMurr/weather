@@ -1,6 +1,10 @@
 import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
 import { convertToBeaufort } from "../utils/conversion.js";
+import { convertWeatherCode } from "../utils/conversion.js";
+import {convertWindDirection} from "../utils/conversion.js";
+import {calculateWindChill} from "../utils/conversion.js";
+
 
 const db = initStore("readings");
 
@@ -16,6 +20,13 @@ export const readingStore = {
     reading.stationid = stationId;
     const beaufortScale = convertToBeaufort(reading.windspeed);
     reading.beaufortScale = beaufortScale;
+
+    const windDirection = convertWindDirection(reading.winddirection);
+    reading.winddirection = windDirection;
+
+    const windChill = calculateWindChill(reading.temp, reading.windspeed);
+    reading.windchill = windChill;
+
     db.data.readings.push(reading);
     await db.write();
     return reading;
@@ -44,12 +55,22 @@ export const readingStore = {
   },
 
   async updateReading(reading, updatedReading) {
-    reading.code = updatedReading.code;
+    reading.code = convertWeatherCode(updatedReading.code);
     reading.temp = updatedReading.temp;
     reading.windspeed = updatedReading.windspeed;
-    reading.pressure = updatedPressure.pressure;
-    const beaufortScale = convertToBeaufort(reading.windspeed);
+    reading.winddirection = updatedReading.winddirection;
+    reading.windchill = updatedReading.windchill;
+    reading.pressure = updatedReading.pressure;
+
+    const beaufortScale = convertToBeaufort(updatedReading.windspeed);
     reading.beaufortScale = beaufortScale;
+
+    const windDirection = convertWindDirection(updatedReading.winddirection);
+    reading.windDirection = windDirection;
+
+    const windChill = calculateWindChill(updatedReading.temp, updatedReading.windspeed);
+    reading.windchill = windChill;
+
     await db.write();
   },
 };
