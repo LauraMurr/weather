@@ -12,7 +12,21 @@ export const stationStore = {
 
   async addStation(station) {
     await db.read();
+    console.log("Adding station:", station.title);
     station._id = v4();
+
+    const latitude = station.latitude;
+    const longitude = station.longitude;
+
+    console.log("Lat", latitude);
+    console.log("long", longitude);
+
+    station.latitude = parseFloat(latitude);
+    station.longitude = parseFloat(longitude);
+
+    console.log("Parsed Lat", station.latitude);
+    console.log("parsed long", station.longitude);
+
     db.data.stations.push(station);
     await db.write();
     return station;

@@ -3,10 +3,14 @@
   "stations": [
     {
       "title": "WEXFORD",
+      "latitude": 6.4633,
+      "longitude": 52.3369,
       "_id": "479b4dd4-2b49-44e1-b5b4-0f1d13943a8c"
     },
     {
       "title": "WATERFORD",
+      "latitude": 7.1101,
+      "longitude": 52.2593,
       "_id": "7ac2deb3-8861-4555-9160-29f1417f0d27"
     },
     {
@@ -32,6 +36,12 @@
     {
       "title": "DUBLIN",
       "_id": "49a2512c-b4aa-428e-9ab6-5a6f71b2bac8"
+    },
+    {
+      "title": "TEST",
+      "latitude": 7.1101,
+      "longitude": 52.2593,
+      "_id": "54da8e10-0e38-4905-b8a0-c2e24c0e4dc9"
     }
   ]
 }

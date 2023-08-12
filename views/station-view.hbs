@@ -3,89 +3,132 @@
 <section class="section">
   <div class="has-text-centered" style="background-color: black; padding: 20px;">
     <h1 class="title has-text-white is-size-1" style="margin-top: 10px; margin-bottom: 20px;">{{station.title}}</h1>
+    <h2 class="subtitle has-text-white is-size-6">{{latitude}} ° W <br> {{longitude}} ° N</h2>
   </div>
   <!-- Latest Readings -->
   <div class="columns is-centered" style="margin-top: 20px;">
     <div class="column is-3">
-      <div class="box has-text-centered">
-        <h2 class="title is-3">WEATHER</h2>
-        <p class="has-text-weight-bold is-size-4">{{station.readings.[0].code}}</p>
+      <div class="box has-text-centered"
+        style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
+        <div>
+          <h2 class="title is-3" style="margin-top: -30px;">WEATHER</h2>
+          <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].code}}</p>
+        </div>
+        <div>
+          {{> icons/weather}}
+        </div>
       </div>
     </div>
     <div class="column is-3">
-      <div class="box has-text-centered">
-        <h2 class="title is-3">TEMP</h2>
-       <p class="has-text-weight-bold is-size-4">{{station.readings.[0].temp}}</p>
+      <div class="box has-text-centered"
+        style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
+        <div>
+          <h2 class="title is-3" style="margin-top: 0px;">TEMP</h2>
+          <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].temp}}°C/
+            {{station.readings.[0].tempF}}°F</p>
+          <p class="has-text-weight-bold is-size-7 has-text-left">Max: {{station.readings.[0].tempMaxC}}°C / {{station.readings.[0].tempMaxF}}°F<br>
+            Min: {{station.readings.[0].tempMinC}}°C / {{station.readings.[0].tempMinF}}°F
+          </p>
+        </div>
+        <div>
+          {{> icons/temp}}
+        </div>
       </div>
     </div>
     <div class="column is-3">
-      <div class="box has-text-centered">
-        <h2 class="title is-3">WIND</h2>
-        <p class="has-text-weight-bold is-size-4">{{station.readings.[0].beaufortScale}} bft <br>
-        {{station.readings.[0].winddirection}} <br> Feels like {{station.readings.[0].windchill}}°C
-        </p>
+      <div class="box has-text-centered"
+        style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
+        <div>
+          <h2 class="title is-3" style="margin-top: 15px;">WIND</h2>
+          <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].beaufortScale}} bft</p> 
+          <p class="has-text-weight-bold is-size-7 has-text-left">{{station.readings.[0].winddirection}} <br> Feels like {{station.readings.[0].windchill}}°C<br>
+            Min: {{station.readings.[0].minWindKmph}}kmph Max: {{station.readings.[0].maxWindKmph}} kmph
+          </p>
+        </div>
+        <div>
+          {{> icons/wind}}
+        </div>
       </div>
     </div>
     <div class="column is-3">
-      <div class="box has-text-centered">
-        <h2 class="title is-3">PRESSURE</h2>
-       <p class="has-text-weight-bold is-size-4">{{station.readings.[0].pressure}} hpa</p>
+      <div class="box has-text-centered"
+        style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
+        <div>
+          <h2 class="title is-3" style="margin-top: 0px;">PRESSURE</h2>
+          <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].pressure}} hpa</p>
+          <p class="has-text-weight-bold is-size-7 has-text-left">Min: {{station.readings.[0].minPressure}}hpa <br>Max: {{station.readings.[0].maxPressure}}hpa</p>
+        </div>
+        <div>
+          {{> icons/pressure}}
+        </div>
       </div>
     </div>
   </div>
 
+
   <!-- Table of All Readings -->
-<div class="table-container" style="margin-top: 20px;">
-  <!-- Header Table -->
-  <table class="table is-fullwidth custom-title-table">
-    <thead>
-      <tr class="custom-title-row">
-        <th class="has-text-centered custom-column" style="color: #008000;">WEATHER</th>
-        <th class="has-text-centered custom-column" style="color: #008000;">TEMP</th>
-        <th class="has-text-centered custom-column" style="color: #008000;">WIND</th>
-        <th class="has-text-centered custom-column" style="color: #008000;">PRESSURE</th>
-        <th class="has-text-centered custom-column" style="color: #008000;">DELETE</th> 
-      </tr>
-    </thead>
-  </table>
+  <div class="table-container" style="margin-top: 20px;">
+    <!-- Header Table -->
+    <table class="table is-fullwidth custom-title-table">
+      <thead>
+        <tr class="custom-title-row">
+          <th class="has-text-centered custom-column" style="color: #008000;">WEATHER</th>
+          <th class="has-text-centered custom-column" style="color: #008000;">TEMP</th>
+          <th class="has-text-centered custom-column" style="color: #008000;">WIND</th>
+          <th class="has-text-centered custom-column" style="color: #008000;">PRESSURE</th>
+          <th class="has-text-centered custom-column" style="color: #008000;">DELETE</th>
+        </tr>
+      </thead>
+    </table>
 
-  <!-- Data Table -->
-  <table class="table is-fullwidth custom-data-table">
-    <tbody>
-      {{#each station.readings}}
-      <tr class="custom-data-row">
-        <td class="has-text-centered custom-column has-text-weight-bold">{{code}}</td>
-        <td class="has-text-centered custom-column has-text-weight-bold">{{temp}}</td>
-        <td class="has-text-centered custom-column has-text-weight-bold"> {{windspeed}} kpm / {{beaufortScale}} bft</td>
-        <td class="has-text-centered custom-column has-text-weight-bold">{{pressure}}</td>
-        <td class="has-text-centered custom-column">
-          <a href="/station/{{../station._id}}/deletereading/{{_id}}">
-            {{>icons/smalldelete}}
-          </a>
-        </td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</div>
+    <!-- Data Table -->
+    <table class="table is-fullwidth custom-data-table">
+      <tbody>
+        {{#each station.readings}}
+        <tr class="custom-data-row">
+          <td class="has-text-centered custom-column has-text-weight-bold">{{code}}</td>
+          <td class="has-text-centered custom-column has-text-weight-bold">{{temp}}°C</td>
+          <td class="has-text-centered custom-column has-text-weight-bold"> {{windspeed}} kpm / {{beaufortScale}} bft
+          </td>
+          <td class="has-text-centered custom-column has-text-weight-bold">{{pressure}}</td>
+          <td class="has-text-centered custom-column">
+            <a href="/station/{{../station._id}}/deletereading/{{_id}}">
+              {{>icons/smalldelete}}
+            </a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 
-<!-- Add Reading Form -->
-<div>
-  {{> add-reading}}
-</div>
+  <!-- Add Reading Form -->
+  <div>
+    {{> add-reading}}
+  </div>
 </section>
 
 <style>
   .custom-data-row {
     box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.6);
   }
+
   .custom-title-row {
-  box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.6); 
-  background-color: #f0f0f0; 
-  color: #008000; 
-  font-weight: bold; 
-}
-.custom-column {
-  width: 20%; /* Adjust as needed */
-}
+    box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.6);
+    background-color: #f0f0f0;
+    color: #008000;
+    font-weight: bold;
+  }
+
+  .custom-column {
+    width: 20%;
+    /* Adjust as needed */
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1px;
+    justify-items: center;
+  }
 </style>

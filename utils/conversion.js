@@ -55,6 +55,10 @@ export function calculateWindChill(temperature, windSpeed) {
   return Math.round(windChill * 10) / 10; 
 }
 
+export function convertToFahrenheit(celsius) {
+  return (celsius * 9/5) + 32;
+}
+
   
   
 

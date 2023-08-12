@@ -61,6 +61,8 @@ export const readingStore = {
     reading.winddirection = updatedReading.winddirection;
     reading.windchill = updatedReading.windchill;
     reading.pressure = updatedReading.pressure;
+    reading.latitude = updatedReading.latitude;
+    reading.longitude = updatedReading.longitude;
 
     const beaufortScale = convertToBeaufort(updatedReading.windspeed);
     reading.beaufortScale = beaufortScale;

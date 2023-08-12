@@ -27,6 +27,17 @@
       "_id": "0128b2d1-5373-4add-85d2-fb4cb1583b22",
       "stationid": "479b4dd4-2b49-44e1-b5b4-0f1d13943a8c",
       "beaufortScale": 1
+    },
+    {
+      "code": "Clear",
+      "temp": 23,
+      "windspeed": 3,
+      "winddirection": "North",
+      "pressure": 333,
+      "windchill": 24.7,
+      "_id": "3d9bfc1f-80f1-46f7-b49d-8775493bb083",
+      "stationid": "479b4dd4-2b49-44e1-b5b4-0f1d13943a8c",
+      "beaufortScale": 1
     }
   ]
 }

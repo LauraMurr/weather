@@ -4,17 +4,79 @@ import { convertToBeaufort } from "../utils/conversion.js";
 import { convertWeatherCode } from "../utils/conversion.js";
 import {convertWindDirection} from "../utils/conversion.js";
 import {calculateWindChill} from "../utils/conversion.js";
+import {convertToFahrenheit} from "../utils/conversion.js";
 
 
 
 export const stationController = {
   async index(request, response) {
     const station = await stationStore.getStationById(request.params.id);
+
+    //min max temp calculation
+    let tempMaxC = Number.NEGATIVE_INFINITY;
+    let tempMinC = Number.POSITIVE_INFINITY;
+
+    for (const reading of station.readings) {
+      if (reading.temp > tempMaxC) {
+        tempMaxC = reading.temp;
+      }
+      if (reading.temp < tempMinC) {
+        tempMinC = reading.temp;
+      }
+    }
+
+    const tempMaxF = convertToFahrenheit(tempMaxC);
+    const tempMinF = convertToFahrenheit(tempMinC);
+
+    // min max wind calculation
+    let minWindKmph = Number.POSITIVE_INFINITY;
+    let maxWindKmph = Number.NEGATIVE_INFINITY;
+
+    for (const reading of station.readings) {
+      if (reading.windspeed < minWindKmph) {
+        minWindKmph = reading.windspeed;
+      }
+      if (reading.windspeed > maxWindKmph) {
+        maxWindKmph = reading.windspeed;
+      }
+    }
+
+    // min max pressure
+    let minPressure = Number.POSITIVE_INFINITY;
+    let maxPressure = Number.NEGATIVE_INFINITY;
+
+    for (const reading of station.readings) {
+      if (reading.pressure < minPressure) {
+        minPressure = reading.pressure;
+      }
+      if (reading.pressure > maxPressure) {
+        maxPressure = reading.Pressure;
+      }
+    }
+    // add min/max to each assigned reading
+    station.readings.forEach(reading => {
+      reading.tempMaxC = tempMaxC;
+      reading.tempMinC = tempMinC;
+      reading.tempMaxF = tempMaxF;
+      reading.tempMinF = tempMinF;
+      reading.minWindKmph = minWindKmph;
+      reading.maxWindKmph = maxWindKmph;
+      reading.minPressure = minPressure;
+      reading.maxPressure = maxPressure;
+    });
+
     const reversedReadings = [...station.readings].reverse();
+
     const viewData = {
       title: "Station",
       station: { ...station, readings: reversedReadings },
+      latitude: station.latitude,
+      longitude: station.longitude,
     };
+    console.log("Station", station);
+    console.log("Latitude:", station.latitude);
+    console.log("Longitude:", station.longitude);
+
     response.render("station-view", viewData);
   },
 
