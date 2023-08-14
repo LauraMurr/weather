@@ -6,12 +6,13 @@
     <h2 class="subtitle has-text-white is-size-6">{{latitude}} ° W <br> {{longitude}} ° N</h2>
   </div>
   <!-- Latest Readings -->
+            
   <div class="columns is-centered" style="margin-top: 20px;">
     <div class="column is-3">
-      <div class="box has-text-centered"
-        style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
+      <div class="box has-text-left"
+        style="display: flex; justify-content: space-between;  align-items: center; height: 200px;">
         <div>
-          <h2 class="title is-3" style="margin-top: -30px;">WEATHER</h2>
+          <h2 class="title is-4" style="margin-top: -60px;">WEATHER </h2>
           <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].code}}</p>
         </div>
         <div>
@@ -20,10 +21,10 @@
       </div>
     </div>
     <div class="column is-3">
-      <div class="box has-text-centered"
+      <div class="box has-text-left"
         style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
         <div>
-          <h2 class="title is-3" style="margin-top: 0px;">TEMP</h2>
+          <h2 class="title is-4" style="margin-top: -30px;">TEMP</h2>
           <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].temp}}°C/
             {{station.readings.[0].tempF}}°F</p>
           <p class="has-text-weight-bold is-size-7 has-text-left">Max: {{station.readings.[0].tempMaxC}}°C / {{station.readings.[0].tempMaxF}}°F<br>
@@ -36,13 +37,13 @@
       </div>
     </div>
     <div class="column is-3">
-      <div class="box has-text-centered"
+      <div class="box has-text-left"
         style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
         <div>
-          <h2 class="title is-3" style="margin-top: 15px;">WIND</h2>
+          <h2 class="title is-4" style="margin-top: 0px;">WIND</h2>
           <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].beaufortScale}} bft</p> 
           <p class="has-text-weight-bold is-size-7 has-text-left">{{station.readings.[0].winddirection}} <br> Feels like {{station.readings.[0].windchill}}°C<br>
-            Min: {{station.readings.[0].minWindKmph}}kmph Max: {{station.readings.[0].maxWindKmph}} kmph
+            Min: {{station.readings.[0].minWindKmph}}kph Max: {{station.readings.[0].maxWindKmph}} kph
           </p>
         </div>
         <div>
@@ -51,10 +52,10 @@
       </div>
     </div>
     <div class="column is-3">
-      <div class="box has-text-centered"
+      <div class="box has-text-left"
         style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
         <div>
-          <h2 class="title is-3" style="margin-top: 0px;">PRESSURE</h2>
+          <h2 class="title is-4" style="margin-top: -30px;">PRESSURE</h2>
           <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].pressure}} hpa</p>
           <p class="has-text-weight-bold is-size-7 has-text-left">Min: {{station.readings.[0].minPressure}}hpa <br>Max: {{station.readings.[0].maxPressure}}hpa</p>
         </div>

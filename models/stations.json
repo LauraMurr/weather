@@ -42,6 +42,20 @@
       "latitude": 7.1101,
       "longitude": 52.2593,
       "_id": "54da8e10-0e38-4905-b8a0-c2e24c0e4dc9"
+    },
+    {
+      "title": "WEXFORD ",
+      "latitude": 6.4633,
+      "longitude": 52.3369,
+      "userid": "36d850d6-97e3-4e88-ba19-cb430a86ba84",
+      "_id": "e5ce96c5-3d53-410b-8ceb-5a6f24f2deaa"
+    },
+    {
+      "title": "WATERFORD",
+      "latitude": 7.1101,
+      "longitude": 52.2593,
+      "userid": "36d850d6-97e3-4e88-ba19-cb430a86ba84",
+      "_id": "4fb27559-991d-455a-943c-52a77d7534d4"
     }
   ]
 }

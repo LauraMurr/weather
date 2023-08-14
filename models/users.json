@@ -1,0 +1,26 @@
+{
+  "file": "./models/users.json",
+  "users": [
+    {
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "test",
+      "_id": "8ad46627-4727-4b38-bff0-5fe3ae19204e"
+    },
+    {
+      "firstName": "homer",
+      "lastName": "simpson",
+      "email": "homer@simpson.com",
+      "password": "test",
+      "_id": "533c510d-6a70-4d43-88f4-0f1925103601"
+    },
+    {
+      "firstName": "bart",
+      "lastName": "simpson",
+      "email": "bart@simpson.com",
+      "password": "test",
+      "_id": "36d850d6-97e3-4e88-ba19-cb430a86ba84"
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import {convertToFahrenheit} from "../utils/conversion.js";
 
 
 
+
 export const stationController = {
   async index(request, response) {
     const station = await stationStore.getStationById(request.params.id);
@@ -50,7 +51,7 @@ export const stationController = {
         minPressure = reading.pressure;
       }
       if (reading.pressure > maxPressure) {
-        maxPressure = reading.Pressure;
+        maxPressure = reading.pressure;
       }
     }
     // add min/max to each assigned reading

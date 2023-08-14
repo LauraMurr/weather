@@ -38,6 +38,50 @@
       "_id": "3d9bfc1f-80f1-46f7-b49d-8775493bb083",
       "stationid": "479b4dd4-2b49-44e1-b5b4-0f1d13943a8c",
       "beaufortScale": 1
+    },
+    {
+      "code": "Rain",
+      "temp": 18,
+      "windspeed": 11,
+      "winddirection": "Northeast",
+      "pressure": 1009,
+      "windchill": 18.1,
+      "_id": "5b184ad6-1243-44f4-bfed-87e18e53bcae",
+      "stationid": "e5ce96c5-3d53-410b-8ceb-5a6f24f2deaa",
+      "beaufortScale": 2
+    },
+    {
+      "code": "Heavy Showers",
+      "temp": 17,
+      "windspeed": 9,
+      "winddirection": "Northeast",
+      "pressure": 1009,
+      "windchill": 17.1,
+      "_id": "c9d5cd2f-7abe-45f6-abe4-c37a22ea3b8d",
+      "stationid": "e5ce96c5-3d53-410b-8ceb-5a6f24f2deaa",
+      "beaufortScale": 2
+    },
+    {
+      "code": "Heavy Showers",
+      "temp": 18,
+      "windspeed": 5,
+      "winddirection": "Northeast",
+      "pressure": 1000,
+      "windchill": 18.8,
+      "_id": "b10a182a-e6a9-495c-89fb-1a30b2cb92b4",
+      "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
+      "beaufortScale": 1
+    },
+    {
+      "code": "Cloudy",
+      "temp": 21,
+      "windspeed": 3,
+      "winddirection": "Northeast",
+      "pressure": 1009,
+      "windchill": 22.5,
+      "_id": "c361aeb6-4929-4a77-8f53-8ff3a6ad2589",
+      "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
+      "beaufortScale": 1
     }
   ]
 }

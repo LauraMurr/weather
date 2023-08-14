@@ -1,0 +1,46 @@
+<section class="section has-text-family-roboto">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      {{> brand}}
+    </div>
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="login" class="button has-text-family-roboto" href="/login" style="background-color: #008000; color: #FFFFFF;"> Log in </a>
+            <a id="signup" class="button has-text-family-roboto" href="/signup" style="background-color: #008000; color: #FFFFFF;"> Sign up </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>
+
+<style>
+  .navbar {
+    padding: 0rem; 
+  }
+
+  .navbar-item {
+    margin-right: 1rem;
+  }
+
+  .button {
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+
+  .button:hover {
+    background-color: white;
+  }
+
+  .active-link {
+    background-color: #008000 !important;
+    color: #FFFFFF !important;
+  }
+</style>
+
+<script>
+  document.getElementById("{{active}}").classList.add("active-link");
+</script>
