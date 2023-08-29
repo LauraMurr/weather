@@ -84,6 +84,8 @@ export const stationController = {
   async addReading(request, response) {
     const station = await stationStore.getStationById(request.params.id);
     const newReading = {
+      time: request.body.time,
+      date: request.body.date,
       code: convertWeatherCode(Number(request.body.code)),
       temp: Number(request.body.temp),
       windspeed: Number(request.body.windspeed),

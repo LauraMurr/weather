@@ -73,6 +73,7 @@
     <table class="table is-fullwidth custom-title-table">
       <thead>
         <tr class="custom-title-row">
+           <th class="has-text-centered custom-column" style="color: #008000;">DATE/TIME</th>
           <th class="has-text-centered custom-column" style="color: #008000;">WEATHER</th>
           <th class="has-text-centered custom-column" style="color: #008000;">TEMP</th>
           <th class="has-text-centered custom-column" style="color: #008000;">WIND</th>
@@ -87,6 +88,7 @@
       <tbody>
         {{#each station.readings}}
         <tr class="custom-data-row">
+          <td class="has-text-centered custom-column has-text-weight-bold">{{date}}  / {{time}}</td>
           <td class="has-text-centered custom-column has-text-weight-bold">{{code}}</td>
           <td class="has-text-centered custom-column has-text-weight-bold">{{temp}}°C</td>
           <td class="has-text-centered custom-column has-text-weight-bold"> {{windspeed}} kpm / {{beaufortScale}} bft

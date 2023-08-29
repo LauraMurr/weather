@@ -1,9 +1,93 @@
-{{> menu active="dashboard"}}
+ {{> menu active="dashboard"}}
 <section class="section">
-  <div class="has-text-centered" style="background-color: black; padding: 30px;">
-    <h1 class="title has-text-white is-size-1" style="margin-top: 10px; margin-bottom: 20px;">{{loggedInUser.firstName}} {{loggedInUser.lastName}}</h1>
-  </div>
-<section class="section">
-  {{> list-stations}}
-  {{> add-station}}
-</section>
+    <div class="has-text-centered" style="background-color: black; padding: 30px;">
+        <h1 class="title has-text-white is-size-1" style="margin-top: 10px; margin-bottom: 20px;">{{loggedInUser.firstName}} {{loggedInUser.lastName}}</h1>
+    </div>
+
+    <div class="section">
+        <div class="dashboard">
+            {{#each stations}}
+            <div class="columns is-centered" style="margin-top: 20px;">
+
+                <!-- Station Title -->
+                <div class="column is-1">
+                    <div class="box has-text-centered" style="background-color: black; padding: 20px;">
+                        <div>
+                         <a href="/station/{{this._id}}">
+                            <h2 class="title has-text-white is-size-5" style="margin-top: 1px; margin-bottom: 1px;">{{this.title}}</h2>
+                          </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather Data -->
+                <div class="column is-3">
+                    <div class="box has-text-left" style="display: flex; justify-content: space-between;  align-items: center; height: 200px;">
+                      {{#if this.readings}}
+                        {{#if this.readings.[0]}}
+                          <div>
+                            <h2 class="title is-5" style="margin-top: -60px;">WEATHER</h2>
+                            <p class="has-text-weight-bold is-size-4 has-text-left">{{this.latestReading.code}}</p>
+                        </div>
+                        <div>
+                            {{> icons/weather}}
+                        </div>
+                        {{else}}
+                                <p>No readings available for this station.</p>
+                            {{/if}}
+                        {{else}}
+                            <p>No readings available for this station.</p>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <!-- Temp Data -->
+                <div class="column is-3">
+                    <div class="box has-text-left" style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
+                        <div>
+                            <h2 class="title is-5" style="margin-top: -5px;">TEMP</h2>
+                            <p class="has-text-weight-bold is-size-4 has-text-left">{{this.latestReading.temp}}°C/ {{this.latestReading.tempF}}°F</p>
+                            <p class="has-text-weight-bold is-size-7 has-text-left">Max: {{this.latestReading.tempMaxC}}°C / {{this.latestReading.tempMaxF}}°F<br> Min: {{this.readings.[0].tempMinC}}°C / {{this.readings.[0].tempMinF}}°F</p>
+                        </div>
+                        <div>
+                            {{> icons/temp}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wind Data -->
+                <div class="column is-3">
+                    <div class="box has-text-left" style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
+                        <div>
+                            <h2 class="title is-5" style="margin-top: 10px;">WIND</h2>
+                            <p class="has-text-weight-bold is-size-4 has-text-left">{{this.latestReading.beaufortScale}} bft</p>
+                            <p class="has-text-weight-bold is-size-7 has-text-left">{{this.latestReading.winddirection}} <br> Feels like {{this.latestReading.windchill}}°C<br> Min: {{this.latestReading.minWindKmph}}kph Max: {{this.latestReading.maxWindKmph}} kph</p>
+                        </div>
+                        <div>
+                            {{> icons/wind}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pressure Data -->
+                <div class="column is-3">
+                    <div class="box has-text-left" style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
+                        <div>
+                            <h2 class="title is-5" style="margin-top: -10px;">PRESSURE</h2>
+                            <p class="has-text-weight-bold is-size-4 has-text-left">{{this.latestReading.pressure}} hpa</p>
+                            <p class="has-text-weight-bold is-size-7 has-text-left">Min: {{this.latestReading.minPressure}}hpa <br>Max: {{this.latestReading.maxPressure}}hpa</p>
+                        </div>
+                        <div>
+                            {{> icons/pressure}}
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end of the row for this station -->
+            {{/each}}
+        </div>
+    </div>
+
+    <section class="section">
+        {{> add-station}}
+    </section>

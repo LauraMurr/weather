@@ -27,6 +27,9 @@ export const readingStore = {
     const windChill = calculateWindChill(reading.temp, reading.windspeed);
     reading.windchill = windChill;
 
+    reading.time = reading.time;
+    reading.date = reading.date;
+
     db.data.readings.push(reading);
     await db.write();
     return reading;
@@ -55,6 +58,8 @@ export const readingStore = {
   },
 
   async updateReading(reading, updatedReading) {
+    reading.date = updatedReading.date;
+    reading.time = updatedReading.time;
     reading.code = convertWeatherCode(updatedReading.code);
     reading.temp = updatedReading.temp;
     reading.windspeed = updatedReading.windspeed;
