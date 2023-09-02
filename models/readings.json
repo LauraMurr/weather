@@ -151,6 +151,32 @@
       "_id": "d1c95959-4010-4f21-b208-cd1c281d4407",
       "stationid": "e5ce96c5-3d53-410b-8ceb-5a6f24f2deaa",
       "beaufortScale": 1
+    },
+    {
+      "time": "20:45",
+      "date": "2023-09-02",
+      "code": "Heavy Showers",
+      "temp": 23,
+      "windspeed": 3,
+      "winddirection": "North-Northeast",
+      "pressure": 777,
+      "windchill": 24.7,
+      "_id": "75641451-e4b3-4107-aaa2-f1c11d115ce5",
+      "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
+      "beaufortScale": 1
+    },
+    {
+      "time": "20:45",
+      "date": "2023-09-02",
+      "code": "Light Showers",
+      "temp": 10,
+      "windspeed": 11,
+      "winddirection": "North-Northeast",
+      "pressure": 3333,
+      "windchill": 8.5,
+      "_id": "9b53b887-31cf-4f45-812a-51c4d2e4df9b",
+      "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
+      "beaufortScale": 2
     }
   ]
 }
