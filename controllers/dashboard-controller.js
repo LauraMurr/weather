@@ -15,7 +15,7 @@ export const dashboardController = {
 
   for (let station of userStations) {
     // Fetch readings for the current station
-    const readings = await readingStore.getReadingsByStationId(station._id);  // Assuming you have such a function
+    const readings = await readingStore.getReadingsByStationId(station._id);  
     
     // Sort readings by date and time
     readings.sort((a, b) => {
