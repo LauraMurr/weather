@@ -1,0 +1,34 @@
+ {{> menu active="dashboard"}}
+
+<section class="section has-text-family-roboto">
+  <h1 class="title">Edit Profile</h1>
+  <form id="editProfileForm">
+    <label class="label">Name</label>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <input class="input" type="text" placeholder="Enter first name" name="firstName" value="{{user.firstName}}">
+        </div>
+        <div class="field">
+          <input class="input" type="text" placeholder="Enter last name" name="lastName" value="{{user.lastName}}">
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Email</label> 
+      <input class="input" type="email" placeholder="Enter email" name="email" value="{{user.email}}">
+    </div>
+    <div class="field">
+      <label class="label">Change Password</label> 
+      <input class="input" type="password" placeholder="Enter new password" name="password">
+    </div>
+    <div class="field">
+      <label class="label">Confirm Password</label> 
+      <input class="input" type="password" placeholder="Confirm new password" name="confirmPassword">
+    </div>
+    <div class="field is-grouped">
+      <button class="button is-link" style="background-color: #008000; color: #FFFFFF;">Update</button>
+    </div>
+  </form>
+</section>
+

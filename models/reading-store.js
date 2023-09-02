@@ -1,10 +1,12 @@
-import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
-import { convertToBeaufort } from "../utils/conversion.js";
-import { convertWeatherCode } from "../utils/conversion.js";
-import {convertWindDirection} from "../utils/conversion.js";
-import {calculateWindChill} from "../utils/conversion.js";
+import {
+  convertToBeaufort,
+  convertWeatherCode,
+  convertWindDirection,
+  calculateWindChill
+} from "../utils/conversion.js";
 
+import { v4 as uuidv4 } from "uuid";
 
 const db = initStore("readings");
 
@@ -16,8 +18,13 @@ export const readingStore = {
 
   async addReading(stationId, reading) {
     await db.read();
-    reading._id = v4();
+    reading._id = uuidv4();
     reading.stationid = stationId;
+
+    const timeStamp = new Date();
+    reading.date = `${timeStamp.getFullYear()}-${(timeStamp.getMonth() + 1).toString().padStart(2, '0')}-${timeStamp.getDate().toString().padStart(2, '0')}`;
+    reading.time = `${timeStamp.getHours().toString().padStart(2, '0')}:${timeStamp.getMinutes().toString().padStart(2, '0')}`;
+
     const beaufortScale = convertToBeaufort(reading.windspeed);
     reading.beaufortScale = beaufortScale;
 
@@ -26,9 +33,6 @@ export const readingStore = {
 
     const windChill = calculateWindChill(reading.temp, reading.windspeed);
     reading.windchill = windChill;
-
-    reading.time = reading.time;
-    reading.date = reading.date;
 
     db.data.readings.push(reading);
     await db.write();
@@ -80,4 +84,32 @@ export const readingStore = {
 
     await db.write();
   },
+
+  async getLatestThreeReadings(stationId) {
+    await db.read();
+  
+    const latestThreeReadings = db.data.readings
+      .filter(reading => reading.stationid === stationId)
+      .sort((a, b) => new Date(b.date + ' ' + b.time) - new Date(a.date + ' ' + a.time))
+      .slice(0, 3);
+  
+    return latestThreeReadings;
+  },
+  
+
+  determineTrend(latestThreeReadings) {
+  if (latestThreeReadings.length < 3) {
+      return 'insufficient-data';
+  }
+
+  if (latestThreeReadings[0].temp > latestThreeReadings[1].temp && latestThreeReadings[1].temp > latestThreeReadings[2].temp) {
+      return 'rising';
+  } else if (latestThreeReadings[0].temp < latestThreeReadings[1].temp && latestThreeReadings[1].temp < latestThreeReadings[2].temp) {
+      return 'falling';
+  } else {
+      return 'stable';
+  }
+}
+
+
 };

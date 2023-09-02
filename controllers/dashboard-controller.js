@@ -64,9 +64,16 @@ export const dashboardController = {
 
 
   async deleteStation(request, response) {
-    const stationId = request.params.id;
+    const stationId = request.params.stationid;
     const loggedInUser = await accountsController.getLoggedInUser(request);
+    console.log(`StationId: ${stationId}`);
+
     const stationToDelete = await stationStore.getStationById(stationId);
+    if (!stationToDelete) {
+      console.error(`Failed to find station with ID: ${stationId}`);
+      response.redirect("/dashboard");
+      return;
+  }
     if (stationToDelete.userid === loggedInUser._id) {
       console.log(`Deleting Station ${stationId}`);
       await stationStore.deleteStationById(stationId);

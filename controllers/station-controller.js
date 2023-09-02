@@ -68,11 +68,17 @@ export const stationController = {
 
     const reversedReadings = [...station.readings].reverse();
 
+    //trends
+    const latestThreeReadings = await readingStore.getLatestThreeReadings(station._id);
+    const trend = readingStore.determineTrend(latestThreeReadings);
+
+
     const viewData = {
       title: "Station",
       station: { ...station, readings: reversedReadings },
       latitude: station.latitude,
       longitude: station.longitude,
+      trend: trend,
     };
     console.log("Station", station);
     console.log("Latitude:", station.latitude);

@@ -14,8 +14,9 @@
                     <div class="box has-text-centered" style="background-color: black; padding: 20px;">
                         <div>
                          <a href="/station/{{this._id}}">
-                            <h2 class="title has-text-white is-size-5" style="margin-top: 1px; margin-bottom: 1px;">{{this.title}}</h2>
-                          </a>
+                            <h2 class="title has-text-white is-size-auto" style="margin-top: auto; margin-bottom: auto; margin-left: auto; margin-right:auto">{{this.title}}</h2>
+                             </a>
+                              <a href="/dashboard/{{this._id}}/deletestation" class="delete-icon">{{> icons/smalldelete}}</a>
                         </div>
                     </div>
                 </div>
@@ -23,21 +24,13 @@
                 <!-- Weather Data -->
                 <div class="column is-3">
                     <div class="box has-text-left" style="display: flex; justify-content: space-between;  align-items: center; height: 200px;">
-                      {{#if this.readings}}
-                        {{#if this.readings.[0]}}
                           <div>
-                            <h2 class="title is-5" style="margin-top: -60px;">WEATHER</h2>
+                            <h2 class="title is-5" style="margin-top: -20px;">WEATHER</h2>
                             <p class="has-text-weight-bold is-size-4 has-text-left">{{this.latestReading.code}}</p>
                         </div>
                         <div>
                             {{> icons/weather}}
                         </div>
-                        {{else}}
-                                <p>No readings available for this station.</p>
-                            {{/if}}
-                        {{else}}
-                            <p>No readings available for this station.</p>
-                        {{/if}}
                     </div>
                 </div>
 

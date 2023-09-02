@@ -2,7 +2,7 @@
 
 <section class="section">
   <div class="has-text-centered" style="background-color: black; padding: 20px;">
-    <h1 class="title has-text-white is-size-1" style="margin-top: 10px; margin-bottom: 20px;">{{station.title}}</h1>
+    <h1 class="title has-text-white is-size-1" style="margin-top: 10px; margin-bottom: 20px;">{{station.title}} </h1>
     <h2 class="subtitle has-text-white is-size-6">{{latitude}} ° W <br> {{longitude}} ° N</h2>
   </div>
   <!-- Latest Readings -->
@@ -12,11 +12,11 @@
       <div class="box has-text-left"
         style="display: flex; justify-content: space-between;  align-items: center; height: 200px;">
         <div>
-          <h2 class="title is-4" style="margin-top: -60px;">WEATHER </h2>
+          <h2 class="title is-4" style="margin-top: -60px;">WEATHER  {{> icons/weather}} </h2>
           <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].code}}</p>
         </div>
         <div>
-          {{> icons/weather}}
+        
         </div>
       </div>
     </div>
@@ -24,7 +24,18 @@
       <div class="box has-text-left"
         style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
         <div>
-          <h2 class="title is-4" style="margin-top: -30px;">TEMP</h2>
+          <h2 class="title is-4" style="margin-top: -30px;">
+            TEMP
+            {{#if (eq trend "rising")}}
+                    {{> icons/rising}}
+                {{/if}}
+                {{#if (eq trend "falling")}}
+                    {{> icons/falling}}
+                {{/if}}
+                {{#if (eq trend "stable")}}
+                    {{> icons/same}}
+                {{/if}}
+          </h2>
           <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].temp}}°C/
             {{station.readings.[0].tempF}}°F</p>
           <p class="has-text-weight-bold is-size-7 has-text-left">Max: {{station.readings.[0].tempMaxC}}°C / {{station.readings.[0].tempMaxF}}°F<br>
@@ -40,7 +51,18 @@
       <div class="box has-text-left"
         style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
         <div>
-          <h2 class="title is-4" style="margin-top: 0px;">WIND</h2>
+          <h2 class="title is-4" style="margin-top: 0px;">
+            WIND
+             {{#if (eq trend "rising")}}
+                    {{> icons/rising}}
+                {{/if}}
+                {{#if (eq trend "falling")}}
+                    {{> icons/falling}}
+                {{/if}}
+                {{#if (eq trend "stable")}}
+                    {{> icons/same}}
+                {{/if}}
+            </h2>
           <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].beaufortScale}} bft</p> 
           <p class="has-text-weight-bold is-size-7 has-text-left">{{station.readings.[0].winddirection}} <br> Feels like {{station.readings.[0].windchill}}°C<br>
             Min: {{station.readings.[0].minWindKmph}}kph Max: {{station.readings.[0].maxWindKmph}} kph
@@ -55,7 +77,18 @@
       <div class="box has-text-left"
         style="display: flex; justify-content: space-between; align-items: center; height: 200px;">
         <div>
-          <h2 class="title is-4" style="margin-top: -30px;">PRESSURE</h2>
+          <h2 class="title is-4" style="margin-top: 10px;">
+            PRESSURE
+             {{#if (eq trend "rising")}}
+                    {{> icons/rising}}
+                {{/if}}
+                {{#if (eq trend "falling")}}
+                    {{> icons/falling}}
+                {{/if}}
+                {{#if (eq trend "stable")}}
+                    {{> icons/same}}
+                {{/if}}
+            </h2>
           <p class="has-text-weight-bold is-size-4 has-text-left">{{station.readings.[0].pressure}} hpa</p>
           <p class="has-text-weight-bold is-size-7 has-text-left">Min: {{station.readings.[0].minPressure}}hpa <br>Max: {{station.readings.[0].maxPressure}}hpa</p>
         </div>

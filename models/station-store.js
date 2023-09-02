@@ -35,6 +35,10 @@ export const stationStore = {
   async getStationById(id) {
     await db.read();
     const list = db.data.stations.find((station) => station._id === id);
+    if (!list) {
+      console.error(`Station with ID: ${id} not found!`);
+      return null;
+  }
     list.readings = await readingStore.getReadingsByStationId(list._id)
     return list;
   },
@@ -53,6 +57,8 @@ export const stationStore = {
 
   async getStationsByUserId(userid) {
     await db.read();
-    return db.data.stations.filter((station) => station.userid === userid);
-  },
+    const userStations = db.data.stations.filter((station) => station.userid === userid);
+    return userStations.sort((a, b) => a.title.localeCompare(b.title));
+},
+
 };

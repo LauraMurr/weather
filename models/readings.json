@@ -112,6 +112,45 @@
       "_id": "410094f8-473e-4634-b7fe-e869c53e916f",
       "stationid": "0a8845b7-1e7b-474d-97fc-ef0225a0d50a",
       "beaufortScale": 2
+    },
+    {
+      "time": "12:18",
+      "date": "2023-08-30",
+      "code": "Clear",
+      "temp": 12,
+      "windspeed": 2,
+      "winddirection": "North-Northeast",
+      "pressure": 3333,
+      "windchill": 13.2,
+      "_id": "8fd21066-935e-4c28-a22d-78b6f8951567",
+      "stationid": "e5ce96c5-3d53-410b-8ceb-5a6f24f2deaa",
+      "beaufortScale": 1
+    },
+    {
+      "time": "12:35",
+      "date": "2023-08-30",
+      "code": "Heavy Showers",
+      "temp": 10,
+      "windspeed": 55.6,
+      "winddirection": "North",
+      "pressure": 999,
+      "windchill": 5.3,
+      "_id": "142cc85e-7b1e-434d-8e7d-2bc1c3122656",
+      "stationid": "e5ce96c5-3d53-410b-8ceb-5a6f24f2deaa",
+      "beaufortScale": 7
+    },
+    {
+      "time": "14:09",
+      "date": "2023-08-30",
+      "code": "Heavy Showers",
+      "temp": 3,
+      "windspeed": 3,
+      "winddirection": "North-Northeast",
+      "pressure": 555,
+      "windchill": 2.8,
+      "_id": "d1c95959-4010-4f21-b208-cd1c281d4407",
+      "stationid": "e5ce96c5-3d53-410b-8ceb-5a6f24f2deaa",
+      "beaufortScale": 1
     }
   ]
 }

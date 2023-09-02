@@ -27,6 +27,8 @@ export const accountsController = {
     response.render("signup-view", viewData);
   },
 
+ 
+
   async register(request, response) {
     const user = request.body;
     await userStore.addUser(user);
@@ -47,7 +49,7 @@ export const accountsController = {
 
 
   async getLoggedInUser(request) {
-    const userEmail = request.cookies.playlist;
+    const userEmail = request.cookies.station;
     console.log("userEmail:", userEmail); 
     const user = await userStore.getUserByEmail(userEmail);
     console.log("user:", user); 
@@ -57,6 +59,25 @@ export const accountsController = {
     }
     return user;
   },
+
+  async editProfile(request, response) {
+    try {
+      const user = await accountsController.getLoggedInUser(request);
+      if (user) {
+        const viewData = {
+          title: "Edit Profile",
+          user: user
+        };
+        response.render('editProfile-view', viewData);
+      } else {
+        response.redirect('/login');  // Redirect to login if user not found
+      }
+    } catch (err) {
+      console.error("Error fetching user details for edit profile:", err);
+      response.redirect('/dashboard'); // Redirect to dashboard on error
+    }
+  },
+  
   
   
 };
