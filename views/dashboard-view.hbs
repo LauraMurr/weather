@@ -1,7 +1,7 @@
  {{> menu active="dashboard"}}
 <section class="section">
-    <div class="has-text-centered" style="background-color: black; padding: 30px;">
-        <h1 class="title has-text-white is-size-1" style="margin-top: 10px; margin-bottom: 20px;">{{loggedInUser.firstName}} {{loggedInUser.lastName}}</h1>
+    <div class="box has-text-centered" style="background-color: black; padding: 30px;">
+        <h1 class="title has-text-white is-size-1" style="display: flex; justify-content: space-between;  align-items: center; height: 200px;">{{loggedInUser.firstName}} {{loggedInUser.lastName}}</h1>
     </div>
 
     <div class="section">
@@ -9,12 +9,15 @@
             {{#each stations}}
             <div class="columns is-centered" style="margin-top: 20px;">
 
+              <!-- Placeholder for centering -->
+    <div class="column is-1"></div>
+
                 <!-- Station Title -->
-                <div class="column is-1">
-                    <div class="box has-text-centered" style="background-color: black; padding: 20px;">
+                <div class="column is-2">
+                    <div class="box has-text-centered" style="background-color: black; padding-top: 35px; height: 200px;">
                         <div>
                          <a href="/station/{{this._id}}">
-                            <h2 class="title has-text-white is-size-auto" style="margin-top: auto; margin-bottom: auto; margin-left: auto; margin-right:auto">{{this.title}}</h2>
+                            <h2 class="title has-text-white is-size-6" style=" align-items: center; ">{{this.title}}<br><br><br><br></h2>
                              </a>
                               <a href="/dashboard/{{this._id}}/deletestation" class="delete-icon">{{> icons/smalldelete}}</a>
                         </div>
@@ -77,8 +80,11 @@
                 </div>
 
             </div> <!-- end of the row for this station -->
+            <!-- Placeholder for centering -->
+    <div class="column is-1"></div>
             {{/each}}
         </div>
+        
     </div>
 
     <section class="section">
