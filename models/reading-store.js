@@ -92,22 +92,30 @@ export const readingStore = {
       .filter(reading => reading.stationid === stationId)
       .sort((a, b) => new Date(b.date + ' ' + b.time) - new Date(a.date + ' ' + a.time))
       .slice(0, 3);
-  
+
+    console.log("Latest three readings: ", latestThreeReadings);
     return latestThreeReadings;
   },
   
 
   determineTrend(latestThreeReadings) {
   if (latestThreeReadings.length < 3) {
+      console.log("Insufficient data for trend");
       return 'insufficient-data';
   }
+  console.log("Reading 0: ", latestThreeReadings[0]);
+  console.log("Reading 1: ", latestThreeReadings[1]);
+  console.log("Reading 2: ", latestThreeReadings[2]);
 
-  if (latestThreeReadings[0].temp > latestThreeReadings[1].temp && latestThreeReadings[1].temp > latestThreeReadings[2].temp) {
-      return 'rising';
-  } else if (latestThreeReadings[0].temp < latestThreeReadings[1].temp && latestThreeReadings[1].temp < latestThreeReadings[2].temp) {
-      return 'falling';
+  if (latestThreeReadings[0].temp < latestThreeReadings[1].temp && latestThreeReadings[1].temp < latestThreeReadings[2].temp) {
+    console.log("Trend is rising");
+    return 'rising';
+  } else if (latestThreeReadings[0].temp > latestThreeReadings[1].temp && latestThreeReadings[1].temp > latestThreeReadings[2].temp) {
+    console.log("Trend is falling");
+    return 'falling';
   } else {
-      return 'stable';
+    console.log("Trend is stable");
+    return 'stable';
   }
 }
 

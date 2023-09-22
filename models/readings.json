@@ -177,6 +177,97 @@
       "_id": "9b53b887-31cf-4f45-812a-51c4d2e4df9b",
       "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
       "beaufortScale": 2
+    },
+    {
+      "time": "09:53",
+      "date": "2023-09-22",
+      "code": "Partial Clouds",
+      "temp": 13,
+      "windspeed": 13,
+      "winddirection": "North-Northeast",
+      "pressure": 777,
+      "windchill": 11.8,
+      "_id": "a7425059-9779-4c42-8b9c-bfee15555aa3",
+      "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
+      "beaufortScale": 3
+    },
+    {
+      "time": "09:54",
+      "date": "2023-09-22",
+      "code": "Clear",
+      "temp": 15,
+      "windspeed": 15,
+      "winddirection": "North-Northeast",
+      "pressure": 666,
+      "windchill": 14.1,
+      "_id": "cdf0f966-50dc-46a5-9130-717ad1dbee6d",
+      "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
+      "beaufortScale": 3
+    },
+    {
+      "time": "09:54",
+      "date": "2023-09-22",
+      "code": "Clear",
+      "temp": 18,
+      "windspeed": 18,
+      "winddirection": "North-Northeast",
+      "pressure": 555,
+      "windchill": 17.6,
+      "_id": "1f56fd31-26ac-44b5-a332-bdeea7e03290",
+      "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
+      "beaufortScale": 3
+    },
+    {
+      "time": "09:58",
+      "date": "2023-09-22",
+      "code": "Partial Clouds",
+      "temp": 26,
+      "windspeed": 44,
+      "winddirection": "North",
+      "pressure": 444,
+      "windchill": 27.3,
+      "_id": "ae95950e-38e5-4b14-97ce-a4b5e570e9d5",
+      "stationid": "4fb27559-991d-455a-943c-52a77d7534d4",
+      "beaufortScale": 6
+    },
+    {
+      "time": "10:04",
+      "date": "2023-09-22",
+      "code": "Clear",
+      "temp": 12,
+      "windspeed": 22,
+      "winddirection": "North-Northeast",
+      "pressure": 900,
+      "windchill": 9.7,
+      "_id": "345c6152-9f54-46ab-b273-1dd6f049d2c8",
+      "stationid": "f2d4582e-46dd-4351-b14f-f5fd53312c8d",
+      "beaufortScale": 4
+    },
+    {
+      "time": "10:04",
+      "date": "2023-09-22",
+      "code": "Partial Clouds",
+      "temp": 16,
+      "windspeed": 22,
+      "winddirection": "North-Northeast",
+      "pressure": 1009,
+      "windchill": 14.8,
+      "_id": "30942640-bd88-471d-bf3d-7001bf7f9e39",
+      "stationid": "f2d4582e-46dd-4351-b14f-f5fd53312c8d",
+      "beaufortScale": 4
+    },
+    {
+      "time": "10:04",
+      "date": "2023-09-22",
+      "code": "Partial Clouds",
+      "temp": 22,
+      "windspeed": 34,
+      "winddirection": "North",
+      "pressure": 3333,
+      "windchill": 22.1,
+      "_id": "c397570f-0fa8-4465-8651-3bbbda208c03",
+      "stationid": "f2d4582e-46dd-4351-b14f-f5fd53312c8d",
+      "beaufortScale": 5
     }
   ]
 }
